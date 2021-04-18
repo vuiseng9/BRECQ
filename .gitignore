@@ -41,3 +41,7 @@ Thumbs.db
 # Ignore ImageNet Pre-trained Models #
 ######################################
 *ImageNet/checkpoint/*
+
+# runs folder
+# ###########
+runs/

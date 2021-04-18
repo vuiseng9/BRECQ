@@ -1,0 +1,24 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "[BRECQ] resnet18 W2A4",
+            "type": "python",
+            "request": "launch",
+            "cwd": "${workspaceFolder}/BRECQ",
+            "program": "main_imagenet.py",
+            "args": [
+                "--data_path", "/data/dataset/imagenet/ilsvrc2012/torchvision"
+                "--arch", "resnet18",
+                "--n_bits_w", "2",
+                "--n_bits_a", "4",
+                "--act_quant",
+                "--test_before_calibration"
+            ],
+            "console": "integratedTerminal"
+        },
+    ]
+}

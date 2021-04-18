@@ -11,12 +11,27 @@
             "cwd": "${workspaceFolder}/BRECQ",
             "program": "main_imagenet.py",
             "args": [
-                "--data_path", "/data/dataset/imagenet/ilsvrc2012/torchvision"
+                "--data_path", "/data/dataset/imagenet/ilsvrc2012/torchvision",
                 "--arch", "resnet18",
                 "--n_bits_w", "2",
                 "--n_bits_a", "4",
                 "--act_quant",
                 "--test_before_calibration"
+            ],
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "[BRECQ] mobilenetv2 W2 0.1",
+            "type": "python",
+            "request": "launch",
+            "cwd": "${workspaceFolder}/BRECQ",
+            "program": "main_imagenet.py",
+            "args": [
+                "--data_path", "/data/dataset/imagenet/ilsvrc2012/torchvision",
+                "--arch", "mobilenetv2",
+                "--n_bits_w", "2",
+                "--channel_wise",
+                "--weight", "0.1",
             ],
             "console": "integratedTerminal"
         },

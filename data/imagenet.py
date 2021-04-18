@@ -13,7 +13,12 @@ def build_imagenet_data(data_path: str = '', input_size: int = 224, batch_size: 
     normalize = transforms.Normalize(mean=[0.485, 0.456, 0.406],
                                      std=[0.229, 0.224, 0.225])
 
-    torchvision.set_image_backend('accimage')
+    try:
+        import accimage
+        torchvision.set_image_backend('accimage')
+    except ImportError:
+        print("[Warning] accimage is not found, fallback to standard torch image backend")
+
     train_dataset = datasets.ImageFolder(
         traindir,
         transforms.Compose([

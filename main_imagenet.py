@@ -8,6 +8,7 @@ import time
 import hubconf
 from quant import *
 from data.imagenet import build_imagenet_data
+from datetime import datetime
 
 
 def seed_all(seed=1029):
@@ -131,7 +132,7 @@ def get_train_samples(train_loader, num_samples):
 
 
 if __name__ == '__main__':
-
+    start_ts = datetime.now()
     parser = argparse.ArgumentParser(description='running parameters',
                                      formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 
@@ -242,3 +243,6 @@ if __name__ == '__main__':
         qnn.set_quant_state(weight_quant=True, act_quant=True)
         print('Full quantization (W{}A{}) accuracy: {}'.format(args.n_bits_w, args.n_bits_a,
                                                                validate_model(test_loader, qnn)))
+
+    end_ts = datetime.now()
+    print("[BRECQ] Elapsed time: {}".format(end_ts-start_ts))
